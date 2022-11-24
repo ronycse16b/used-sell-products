@@ -1,0 +1,9 @@
+
+    .triangle-topright {
+        border-top: 100px solid red;
+        border-left: 100px solid transparent;
+     
+      }
+      .custom{
+        margin-top: -6rem;
+      }
