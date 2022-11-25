@@ -14,12 +14,12 @@ const Home = () => {
 
     return (
         <div>
-           <Banner></Banner>
-           <Advertistment></Advertistment>
-           <Categories></Categories>
-              <Testimonial></Testimonial>
-           
-        
+            <Banner></Banner>
+            <Advertistment></Advertistment>
+            <Categories></Categories>
+            <Testimonial></Testimonial>
+
+
         </div>
     );
 };

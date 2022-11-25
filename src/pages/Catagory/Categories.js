@@ -1,6 +1,28 @@
-import React from 'react';
+
+
+import { useEffect, useState } from 'react';
+import Catagory from './Catagory';
 
 const Categories = () => {
+
+    const [brands , setBrands] = useState([]);
+    console.log(brands);
+
+    useEffect(()=>{
+
+        fetch(`http://localhost:5000/brands`)
+         .then(res => res.json())
+         .then(data => setBrands(data))
+        
+        
+        
+        
+        } ,[])
+
+
+
+
+
     return (
         <section className='  ' >     
            
@@ -43,102 +65,10 @@ const Categories = () => {
                  
                 </div>
                 <div className="grid gap-4 row-gap-5 sm:grid-cols-2 lg:grid-cols-4 mt-24">
-                    <div className="flex flex-col justify-between p-5 border-2 rounded shadow-sm bg-white border-primary mt-12 ">
-                        <div>
-                            <div className="flex items-center justify-center w-full h-16 mb-4 rounded-full bg-indigo-50">
-                                <img
-                                    src="https://bikebd.com/den/storage/app/files/shares/2022/01/1643531327155.png?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
-                                    className="object-cover w-full h-48  border-2 border-primary"
-                                    alt="" />
-                            </div>
-                            <div className='mt-20'>
-                          <h6 className="mb-2 font-semibold leading-5">A slice of heaven</h6>
-                            <p className="mb-3 text-sm text-gray-900">
-                                Disrupt inspire and think tank, social entrepreneur but
-                                preliminary thinking think tank compelling.
-                            </p>
-                          </div>
-                        </div>
-                        <a
-                            href="/"
-                            aria-label=""
-                            className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
-                        >
-                            Learn more
-                        </a>
-                    </div>
-                    <div className="flex flex-col justify-between p-5 border-2 rounded shadow-sm bg-white border-primary mt-12">
-                        <div>
-                            <div className="flex items-center justify-center w-full h-16 mb-4 rounded-full bg-indigo-50">
-                                <img
-                                    src="https://motosymbol.com/wp-content/uploads/2021/02/Suzuki-Logo.jpg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
-                                    className="object-cover w-full h-48 border-2 border-primary"
-                                    alt="" />
-                            </div>
-                            <div className='mt-20'>
-                          <h6 className="mb-2 font-semibold leading-5">A slice of heaven</h6>
-                            <p className="mb-3 text-sm text-gray-900">
-                                Disrupt inspire and think tank, social entrepreneur but
-                                preliminary thinking think tank compelling.
-                            </p>
-                          </div>
-                        </div>
-                        <a
-                            href="/"
-                            aria-label=""
-                            className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
-                        >
-                            Learn more
-                        </a>
-                    </div>
-                    <div className="flex flex-col justify-between p-5 border-2 rounded shadow-sm bg-white border-primary mt-12">
-                        <div>
-                            <div className="flex items-center justify-center w-full h-16 mb-4 rounded-full bg-indigo-50">
-                                <img
-                                    src="https://motosymbol.com/wp-content/uploads/2021/02/Yamaha-Logo.jpg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
-                                    className="object-cover w-full h-48 border-2 border-primary"
-                                    alt="" />
-                            </div>
-                            <div className='mt-20'>
-                          <h6 className="mb-2 font-semibold leading-5">A slice of heaven</h6>
-                            <p className="mb-3 text-sm text-gray-900">
-                                Disrupt inspire and think tank, social entrepreneur but
-                                preliminary thinking think tank compelling.
-                            </p>
-                          </div>
-                        </div>
-                        <a
-                            href="/"
-                            aria-label=""
-                            className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
-                        >
-                            Learn more
-                        </a>
-                    </div>
-                    <div className="flex flex-col justify-between p-5 border-2 rounded shadow-sm bg-white border-primary mt-12">
-                        <div>
-                            <div className="flex items-center justify-center w-full h-16 mb-4 rounded-full bg-indigo-50">
-                                <img
-                                    src="http://static.businessworld.in/article/article_extra_large_image/1572505979_mFZNcx_TVS_Motor_Company.jpg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
-                                    className="object-cover w-full h-48 border-2 border-primary"
-                                    alt="" />
-                            </div>
-                          <div className='mt-20 '>
-                          <h6 className="mb-2 font-semibold leading-5 ">A slice of heaven</h6>
-                            <p className="mb-3 text-sm text-gray-900">
-                                Disrupt inspire and think tank, social entrepreneur but
-                                preliminary thinking think tank compelling.
-                            </p>
-                          </div>
-                        </div>
-                        <a
-                            href="/"
-                            aria-label=""
-                            className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
-                        >
-                            Learn more
-                        </a>
-                    </div>
+                 {
+                    brands?.map(brand => <Catagory brand={brand} key={brand._id} ></Catagory> )
+                 }
+                   
                 </div>
             </div>
             </div>
