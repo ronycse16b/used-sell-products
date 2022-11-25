@@ -8,6 +8,8 @@ import Dashboard from "../pages/Dashboard/Dashboard";
 import Home from "../pages/Home/Home";
 import MyOrder from "../pages/MyOrder/MyOrder";
 import Login from "../pages/signupIn/Login";
+import Signup from "../pages/signupIn/Signup";
+import ProtectRoutes from "./ProtectRoutes";
 
 export const router = createBrowserRouter([
   
@@ -35,7 +37,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/brands/Details/:id',
-        element: <BikeDetails></BikeDetails>,
+        element:<ProtectRoutes> <BikeDetails></BikeDetails></ProtectRoutes>,
         loader:({params})=> fetch(`http://localhost:5000/brands/Details/${params.id}`)
       },
       {
@@ -46,6 +48,15 @@ export const router = createBrowserRouter([
         path: '/category',
         element: <Categories></Categories>
       },
+      {
+        path: '/login',
+        element: <Login></Login>
+      },
+      {
+        path: '/signup',
+        element: <Signup></Signup>
+      },
+   
 
 
     ]
