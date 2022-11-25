@@ -34,7 +34,7 @@ const Banner = () => {
               <a
                 href="/"
                 aria-label=""
-                className="inline-flex items-center font-semibold tracking-wider transition-colors duration-200 text-teal-accent-400 hover:text-teal-accent-700 btn btn-primary"
+                className="inline-flex items-center font-semibold tracking-wider transition-colors duration-200 text-teal-accent-400 hover:text-teal-accent-700 text-white border-primary bg-primary btn btn-primary border"
               >
                 Learn more
                 <svg

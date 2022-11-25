@@ -1,0 +1,5 @@
+.carousel .control-dots .dot{
+    background-color: red !important;
+    height: 15px !important;
+    width:  15px !important;
+}

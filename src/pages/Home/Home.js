@@ -1,8 +1,11 @@
 import React from 'react';
 import Advertistment from '../Advertisment/Advertistment';
+import Comments from '../AnyComments/Comments';
 import Banner from '../Banner/Banner';
 import Categories from '../Catagory/Categories';
-import Slider from '../HomeSlider/Slider';
+import Testimonial from '../CustomerTestimonial/Testimonial';
+
+
 
 
 
@@ -14,6 +17,8 @@ const Home = () => {
            <Banner></Banner>
            <Advertistment></Advertistment>
            <Categories></Categories>
+              <Testimonial></Testimonial>
+           
         
         </div>
     );

@@ -2,13 +2,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Nav.css';
+import  logo from './logo.png';
 
 const Nav = () => {
     const menuIteams = <>
         <li><Link to='/home'>Home</Link></li>
         <li><Link to='/about'>About</Link></li>
-        <li><Link to='/appointment'>Appointment</Link></li>
-        <li><Link to='/reviews'>Reviews</Link></li>
+        <li><Link to='/appointment'>Bike Category</Link></li>
+        <li><Link to='/order'>My Orders</Link></li>
         <li><Link to='/login'>Login</Link></li>
     </>
     return (
@@ -23,7 +24,7 @@ const Nav = () => {
                     </ul>
                 </div>
               <div className=' lg:w-1/4 '>
-              <Link to='/' className="btn btn-ghost font-bold uppercase-case italic text-xl  bg-white">Used <span className='text-primary font-bold px-1'> Bike </span> BD</Link>
+              <Link to='/' className="btn btn-ghost font-bold uppercase-case italic text-xl  bg-white">Used  <img src={logo} alt="" className='w-10' /><span className='text-primary font-bold px-1'>   Bike </span> BD</Link>
               </div>
               <div  className="navbar-center hidden lg:flex  text-base-100  lg:w-3/4  triangle-topright relative ">
                 <ul className="menu menu-horizontal p-0 absolute custom ">
