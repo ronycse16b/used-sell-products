@@ -43,7 +43,7 @@ const Categories = () => {
                  
                 </div>
                 <div className="grid gap-4 row-gap-5 sm:grid-cols-2 lg:grid-cols-4 mt-24">
-                    <div className="flex flex-col justify-between p-5 border-2 rounded shadow-sm bg-white border-primary">
+                    <div className="flex flex-col justify-between p-5 border-2 rounded shadow-sm bg-white border-primary mt-12 ">
                         <div>
                             <div className="flex items-center justify-center w-full h-16 mb-4 rounded-full bg-indigo-50">
                                 <img
@@ -67,7 +67,7 @@ const Categories = () => {
                             Learn more
                         </a>
                     </div>
-                    <div className="flex flex-col justify-between p-5 border-2 rounded shadow-sm bg-white border-primary">
+                    <div className="flex flex-col justify-between p-5 border-2 rounded shadow-sm bg-white border-primary mt-12">
                         <div>
                             <div className="flex items-center justify-center w-full h-16 mb-4 rounded-full bg-indigo-50">
                                 <img
@@ -91,7 +91,7 @@ const Categories = () => {
                             Learn more
                         </a>
                     </div>
-                    <div className="flex flex-col justify-between p-5 border-2 rounded shadow-sm bg-white border-primary">
+                    <div className="flex flex-col justify-between p-5 border-2 rounded shadow-sm bg-white border-primary mt-12">
                         <div>
                             <div className="flex items-center justify-center w-full h-16 mb-4 rounded-full bg-indigo-50">
                                 <img
@@ -115,7 +115,7 @@ const Categories = () => {
                             Learn more
                         </a>
                     </div>
-                    <div className="flex flex-col justify-between p-5 border-2 rounded shadow-sm bg-white border-primary">
+                    <div className="flex flex-col justify-between p-5 border-2 rounded shadow-sm bg-white border-primary mt-12">
                         <div>
                             <div className="flex items-center justify-center w-full h-16 mb-4 rounded-full bg-indigo-50">
                                 <img
