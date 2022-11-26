@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import BookingModal from '../Booking Modal/BookingModal';
 
 const BikeDetails = () => {
 
+    const [data ,setData] = useState([]);
     const SingleBikeDetails = useLoaderData();
-
     const { Bike_type, Brand, Condition, Edition, Engine_capacity, Kilometers_run, Model, Year_of_Manufacture, details, image_url, price } = SingleBikeDetails;
+
 
 
 
@@ -38,9 +40,11 @@ const BikeDetails = () => {
                 <p>{details}</p>
                 <div className="card-actions justify-end">
                     <div className="badge badge-outline btn btn-accent">favorite</div>
-                    <div className="badge badge-outline btn btn-primary">Book Now</div>
+                    <label onClick={()=>setData(SingleBikeDetails)} htmlFor="BookingModal" className="btn btn-primary">Bike Book Now</label>
+                
                 </div>
             </div>
+            <BookingModal data={data}></BookingModal>
         </div>
     );
 };

@@ -37,7 +37,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/brands/Details/:id',
-        element:<ProtectRoutes> <BikeDetails></BikeDetails></ProtectRoutes>,
+        element: <BikeDetails></BikeDetails>,
         loader:({params})=> fetch(`http://localhost:5000/brands/Details/${params.id}`)
       },
       {

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Brand = ({brand}) => {
-    console.log(brand);
+  
     return (
         <div>
             <div className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm">
