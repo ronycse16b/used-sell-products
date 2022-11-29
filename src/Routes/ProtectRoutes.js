@@ -4,6 +4,7 @@ import React from 'react';
 import { useContext } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../Context/Auth/AuthProvider';
+import Loader from '../pages/Loader/Loader';
 
 
 
@@ -14,7 +15,7 @@ const ProtectRoutes = ({ children }) => {
 
 
     if (loading) {
-        return <p className="loader ">...</p>;
+        return <Loader></Loader>;
     }
 
     if (user && user.uid) {

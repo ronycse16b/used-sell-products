@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import Nav from '../pages/Nav/Nav';
 
 const DashboardLayout = () => {
@@ -21,8 +21,12 @@ const DashboardLayout = () => {
                             alt=""
                         />
                         <div className='bg-opacity-80 bg-black relative min-h-screen  '>
-                            <li className='hover:bg-primary hover:text-white '><a>Sidebar Item 1</a></li>
-                            <li className='hover:bg-primary hover:text-white '><a>Sidebar Item 2</a></li>
+                            <li className='hover:bg-primary hover:text-white '><a>My Products</a></li>
+                            <li className='hover:bg-primary hover:text-white '><a>My Buyer</a></li>
+                            <li className='hover:bg-primary hover:text-white '><a>Add Product</a></li>
+                            <li className='hover:bg-primary hover:text-white '><Link to='/dashboard/seller'>All Sellers</Link></li>
+                            <li className='hover:bg-primary hover:text-white '><a>All Buyers</a></li>
+                            <li className='hover:bg-primary hover:text-white '><a> Reported Items</a></li>
                         </div>
 
 

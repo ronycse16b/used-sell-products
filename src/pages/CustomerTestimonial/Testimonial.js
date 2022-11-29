@@ -5,7 +5,7 @@ import './Test.css';
 
 const Testimonial = () => {
     return (
-        <div className='lg:py-20'>
+        <div className='lg:py-20 bg-slate-200 '>
             <Carousel autoPlay={true} infiniteLoop={true} showArrows={false}>
                 <div>
                     <section className="my-8 ">

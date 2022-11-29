@@ -6,7 +6,6 @@ import Catagory from './Catagory';
 const Categories = () => {
 
     const [brands , setBrands] = useState([]);
-    console.log(brands);
 
     useEffect(()=>{
 

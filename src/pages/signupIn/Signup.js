@@ -1,37 +1,82 @@
 import React, { useContext, useState } from 'react';
 import { set, useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
-import { AuthContext } from '../../Context/Auth/AuthProvider';
 import toast from 'react-hot-toast';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Context/Auth/AuthProvider';
+import useToken from '../Hook/useToken';
+
 
 
 const Signup = () => {
 
-const {createUser}= useContext(AuthContext);
+    const navigate = useNavigate()
+
+    const { createUser, updateUserProfile, loading } = useContext(AuthContext);
     const { register, handleSubmit, formState: { errors }, } = useForm();
     const [error, setError] = useState('');
+    const [createdUserEmail, setCreatedUserEmail] = useState('')
+    const [token] = useToken(createdUserEmail);
+
+    if(token){
+        navigate('/');
+    }
 
     const handelSignup = (data) => {
-        console.log(data);
+
 
         const email = data.email;
         const password = data.password;
 
         setError('')
         createUser(email, password)
-        .then(result => {
-            const user = result.user;
-            console.log(user);
-            useForm.reset();
-         
-                toast.success('User has been created')
-            
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                handelUpdateUser(data.name);
+                saveUser(data.name, email, data.role)
+                toast.success('user create successfully');
+            })
+            .catch(error => {
+                setError(error.message);
+            });
 
-        })
-        .catch(error => {
-            setError(error.message.slice(15,));
-        });
+        // user data updated functio
     }
+
+    const handelUpdateUser = (name) => {
+        const profile = {
+            displayName: name,
+            // photoURL: photoUrl,
+        }
+        updateUserProfile(profile)
+            .then(result => {
+
+
+            })
+            .catch(error => {
+                setError(error.message);
+            });
+
+
+
+    }
+
+    const saveUser = (name, email, role) => {
+        const user = { name, email, role };
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                setCreatedUserEmail(email);
+
+            })
+    }
+
 
 
     return (
@@ -42,7 +87,7 @@ const {createUser}= useContext(AuthContext);
                         Sign up Here
                     </h3>
 
-                   <p className='text-primary font-bold text-xl'>{error}</p>
+                    <p className='text-primary font-bold text-xl'>{error}</p>
                     <form onSubmit={handleSubmit(handelSignup)}>
                         <div className="mb-1 sm:mb-2 ">
                             <label
@@ -90,6 +135,14 @@ const {createUser}= useContext(AuthContext);
                                 id="lastName"
                                 name="password"
                             /> {errors.password && <p className='text-red-600' role="alert">{errors.password?.message}</p>}
+                        </div>
+                        <div className="mb-1 sm:mb-2">
+                            <select className="select select-secondary w-full " {...register("role")}>
+
+                                <option defaultValue={'user'}>User</option>
+                                <option value={'seller'}>Seller</option>
+
+                            </select>
                         </div>
                         <div className="mt-4 mb-2 sm:mb-4">
                             <button

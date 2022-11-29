@@ -1,9 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../layout/DashboardLayout";
 import Main from "../layout/Main";
+import Products from "../pages/AllProducts/Products";
 import BikeDetails from "../pages/Catagory/BikeDetails";
 import Brands from "../pages/Catagory/Brands";
 import Categories from "../pages/Catagory/Categories";
+import Seller from "../pages/dasboardcomponents/Seller/Seller";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import Home from "../pages/Home/Home";
 import MyOrder from "../pages/MyOrder/MyOrder";
@@ -37,16 +39,21 @@ export const router = createBrowserRouter([
       },
       {
         path: '/brands/Details/:id',
-        element: <BikeDetails></BikeDetails>,
+        element: <ProtectRoutes><BikeDetails></BikeDetails></ProtectRoutes>,
         loader:({params})=> fetch(`http://localhost:5000/brands/Details/${params.id}`)
       },
       {
         path: '/order',
-        element: <MyOrder></MyOrder>
+        element: <ProtectRoutes><MyOrder></MyOrder></ProtectRoutes> 
       },
       {
         path: '/category',
         element: <Categories></Categories>
+      },
+      {
+        path: '/bikes',
+        element: <Products></Products>,
+
       },
       {
         path: '/login',
@@ -70,6 +77,10 @@ export const router = createBrowserRouter([
       {
         path: '/dashboard',
         element: <Dashboard></Dashboard>
+      },
+      {
+        path: '/dashboard/seller',
+        element: <Seller></Seller>
       },
 
 
