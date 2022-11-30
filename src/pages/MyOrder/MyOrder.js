@@ -12,7 +12,7 @@ import Order from './Order';
 const MyOrder = () => {
     const { user } = useContext(AuthContext);
 
-    const { data: bookings = [''], isLoading } = useQuery({
+    const { data: bookings = [''], refetch, isLoading } = useQuery({
         queryKey: ['bookings', user?.email],
         queryFn: async () => {
             const res = await fetch(`http://localhost:5000/bookings?email=${user?.email}`, {
@@ -25,6 +25,10 @@ const MyOrder = () => {
         }
     })
 
+
+
+
+
     if(isLoading){
         return <Loader></Loader>
     }
@@ -34,13 +38,18 @@ const MyOrder = () => {
     return (
         <div >
             <div className="flex flex-col max-w-3xl p-6 space-y-4 sm:p-10 dark:bg-gray-900 dark:text-gray-100 conatiner mx-auto lg:py-20">
-                <h2 className="text-xl font-semibold">Your Orders</h2>
+              {
+                bookings.length > 0 ? <h2 className="text-xl font-semibold">You Have {bookings.length} Order</h2> :<h2 className="text-xl font-semibold">You Dont Have Any Order Right Now</h2>
+              }
+                  
+
+                   
                 <ul className="flex flex-col divide-y divide-gray-700">
 
 
 
                   {
-                    bookings.map(order => <Order key={order._id} order={order} ></Order>)
+                    bookings.map(order => <Order key={order._id} order={order} refetch={refetch} ></Order>)
 
                   } 
 

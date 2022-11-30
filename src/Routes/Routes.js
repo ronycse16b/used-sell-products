@@ -12,6 +12,7 @@ import Home from "../pages/Home/Home";
 import MyOrder from "../pages/MyOrder/MyOrder";
 import Login from "../pages/signupIn/Login";
 import Signup from "../pages/signupIn/Signup";
+import AdminRoute from "./Admin Route/AdminRoute";
 import ProtectRoutes from "./ProtectRoutes";
 
 export const router = createBrowserRouter([
@@ -77,15 +78,15 @@ export const router = createBrowserRouter([
 
       {
         path: '/dashboard',
-        element: <Dashboard></Dashboard>
+        element: <ProtectRoutes> <AdminRoute><Dashboard></Dashboard></AdminRoute></ProtectRoutes>
       },
       {
         path: '/dashboard/seller',
-        element: <Seller></Seller>
+        element:<ProtectRoutes> <AdminRoute><Seller></Seller></AdminRoute></ProtectRoutes>
       },
       {
         path: '/dashboard/buyers',
-        element: <AllBuyer></AllBuyer>
+        element:<ProtectRoutes><AdminRoute><AllBuyer></AllBuyer></AdminRoute></ProtectRoutes> 
       },
 
 

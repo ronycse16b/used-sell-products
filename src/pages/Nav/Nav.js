@@ -8,6 +8,7 @@ import useAdmin from '../Hook/useAdmin';
 import useSeller from '../Hook/useSeller';
 import useUser from '../Hook/useUser';
 
+
 const Nav = () => {
     const { user, logOut } = useContext(AuthContext);
     const [isAdmin] = useAdmin(user?.email)
@@ -32,9 +33,13 @@ const Nav = () => {
 
         {user?.uid ?
             <>
-                {
-                    isUser && <li><Link to='/order'>My Orders</Link></li>
-                }
+                
+                 {
+                    isUser && <>
+                    <li><Link to='/order'>My Orders</Link></li>
+                    </>
+                 }
+                
                 {
                     isAdmin && <>
                         <li><Link to='/dashboard'>Admin Dashboard</Link></li>
