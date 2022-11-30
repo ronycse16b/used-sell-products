@@ -1,13 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import toast from 'react-hot-toast';
-import Loader from '../../Loader/Loader';
+import Loader from '../Loader/Loader';
 
 
-
-const Seller = () => {
-    const user = 'seller';
-    const { data: buyers = [''],refetch ,isLoading } = useQuery({
+const AllBuyer = () => {
+    const user = 'user';
+    const { data: buyers = [''], refetch, isLoading } = useQuery({
         queryKey: ['users', user],
         queryFn: async () => {
             const res = await fetch(`http://localhost:5000/users?role=${user}`, {
@@ -21,12 +20,8 @@ const Seller = () => {
         }
     })
 
-
-    const handleVarifyedSeller = id => {
-
-          
-
-        fetch(`http://localhost:5000/users/admin/verify/${id}`, {
+    const handleMakeAdmin = id => {
+        fetch(`http://localhost:5000/users/admin/${id}`, {
             method: 'PUT', 
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -35,15 +30,11 @@ const Seller = () => {
         .then(res => res.json())
         .then(data => {
             if(data.modifiedCount > 0){
-                toast.success('verifyed successful.')
+                toast.success('Make admin successful.')
                 refetch();
             }
         })
     }
-
-
-
-
 
 
 
@@ -56,13 +47,12 @@ const Seller = () => {
             <div className="overflow-x-auto">
                 <table className="min-w-full text-xs">
 
-                    <thead className="dark:bg-gray-700 ">
-                        <tr className="text-left font-bold">
+                    <thead className="dark:bg-gray-700">
+                        <tr className="text-left">
                             <th className="p-3">S/N #</th>
                             <th className="p-3">Name</th>
                             <th className="p-3">Email</th>
-                            <th className="p-3">Account type</th>
-                            <th className="p-3"> Varify Status</th>
+                
                             <th className="p-3">Action</th>
                         </tr>
                     </thead>
@@ -79,22 +69,14 @@ const Seller = () => {
                                 <td className="p-3">
                                     <p>{user.email}</p>
                                 </td>
-                                <td className="p-3">
-                                    <p>{user.role}</p>
-                                </td>
-                                <td className="p-3">
-                                    <p>{user.status}</p>
-                                </td>
 
 
                                 <td className="p-3 ">
-                                    <span className=" font-semibold rounded-md dark:bg-violet-400 dark:text-gray-900 mr-4">
-                                    {user?.role !== 'admin' && <button disabled={user.status ==='Verifyed'}  onClick={() => handleVarifyedSeller(user._id)} className='btn btn-xs btn-primary'>Make Verifiyed</button>}
-                                    </span>
-                                    <button className='btn btn-xs btn-accent text-white hover:bg-primary border-0'>Delete </button>
+                                { user?.role !== 'admin' && <button onClick={() => handleMakeAdmin(user._id)} className='btn btn-xs btn-primary mr-3'>Make Admin</button>}
+                                <button className='btn btn-xs btn-accent text-white hover:bg-primary'>Delete </button>
                                 </td>
                                 <td className="p-3">
-
+                                    
                                 </td>
                             </tr>)
                         }
@@ -105,4 +87,4 @@ const Seller = () => {
     );
 };
 
-export default Seller;
+export default AllBuyer;

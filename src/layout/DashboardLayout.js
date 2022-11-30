@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import { AuthContext } from '../Context/Auth/AuthProvider';
+import useAdmin from '../pages/Hook/useAdmin';
+import useSeller from '../pages/Hook/useSeller';
 import Nav from '../pages/Nav/Nav';
 
 const DashboardLayout = () => {
+
+    const { user } = useContext(AuthContext);
+    const [isAdmin] = useAdmin(user?.email)
+    const [isSeller] = useSeller(user?.email)
+
     return (
         <div>
             <Nav></Nav>
@@ -21,12 +29,25 @@ const DashboardLayout = () => {
                             alt=""
                         />
                         <div className='bg-opacity-80 bg-black relative min-h-screen  '>
-                            <li className='hover:bg-primary hover:text-white '><a>My Products</a></li>
-                            <li className='hover:bg-primary hover:text-white '><a>My Buyer</a></li>
-                            <li className='hover:bg-primary hover:text-white '><a>Add Product</a></li>
-                            <li className='hover:bg-primary hover:text-white '><Link to='/dashboard/seller'>All Sellers</Link></li>
-                            <li className='hover:bg-primary hover:text-white '><a>All Buyers</a></li>
-                            <li className='hover:bg-primary hover:text-white '><a> Reported Items</a></li>
+                            {isSeller && <>
+
+                                <li className='hover:bg-primary hover:text-white '><a>My Products</a></li>
+                                <li className='hover:bg-primary hover:text-white '><a>My Buyer</a></li>
+                                <li className='hover:bg-primary hover:text-white '><a>Add Product</a></li>
+                            </>
+
+
+                            }
+
+                            {
+                                isAdmin && <>
+                                    <li className='hover:bg-primary hover:text-white '><Link to='/dashboard/seller'>All Sellers</Link></li>
+                                    <li className='hover:bg-primary hover:text-white '><Link to='/dashboard/buyers'>All Buyers</Link></li>
+                                    <li className='hover:bg-primary hover:text-white '><a> Reported Items</a></li>
+                                </>
+                            }
+
+
                         </div>
 
 

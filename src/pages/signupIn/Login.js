@@ -49,16 +49,10 @@ const Login = () => {
 
         providerLogin(googleProvider)
             .then(result => {
-                navigate(from, { replace: true });
             })
             .catch(error => {
                 setError(error.message);
             });
-
-
-
-
-
     }
 
 

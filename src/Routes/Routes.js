@@ -5,6 +5,7 @@ import Products from "../pages/AllProducts/Products";
 import BikeDetails from "../pages/Catagory/BikeDetails";
 import Brands from "../pages/Catagory/Brands";
 import Categories from "../pages/Catagory/Categories";
+import AllBuyer from "../pages/dasboardcomponents/AllBuyer";
 import Seller from "../pages/dasboardcomponents/Seller/Seller";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import Home from "../pages/Home/Home";
@@ -81,6 +82,10 @@ export const router = createBrowserRouter([
       {
         path: '/dashboard/seller',
         element: <Seller></Seller>
+      },
+      {
+        path: '/dashboard/buyers',
+        element: <AllBuyer></AllBuyer>
       },
 
 

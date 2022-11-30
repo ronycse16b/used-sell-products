@@ -4,20 +4,23 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Nav.css';
 import logo from './logo.png';
 import { AuthContext } from '../../Context/Auth/AuthProvider';
+import useAdmin from '../Hook/useAdmin';
+import useSeller from '../Hook/useSeller';
+import useUser from '../Hook/useUser';
 
 const Nav = () => {
-
-    const navigate = useNavigate();
-
     const { user, logOut } = useContext(AuthContext);
-
+    const [isAdmin] = useAdmin(user?.email)
+    const [isUser] = useUser(user?.email)
+    const [isSeller] = useSeller(user?.email)
+    const navigate = useNavigate();
 
     const handelLogout = () => {
         logOut()
             .then(() => { })
             .catch(error => console.error(error))
-             
-            navigate('/')
+
+        navigate('/')
 
 
     }
@@ -29,18 +32,29 @@ const Nav = () => {
 
         {user?.uid ?
             <>
-                <li><Link to='/order'>My Orders</Link></li>
-                <li><Link to='/dashboard'>My Dashboard</Link></li>
-                <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
                 {
-                    user?.photoURL ?
-
-                        <img src={user?.photoURL} alt="" className=" tooltip  ml-5 w-10 h-10 rounded-full  dark:bg-gray-500 ring-violet-400 ring-offset-gray-800"
-                        />
-                        : <img className="w-10 h-10 rounded-full mt-1 " src="https://toppng.com/uploads/preview/app-icon-set-login-icon-comments-avatar-icon-11553436380yill0nchdm.png" alt="" />
-
-
+                    isUser && <li><Link to='/order'>My Orders</Link></li>
                 }
+                {
+                    isAdmin && <>
+                        <li><Link to='/dashboard'>Admin Dashboard</Link></li>
+                    </>
+                }
+                {
+                    isSeller && <>
+                        <li><Link to='/dashboard'>Seller Dashboard</Link></li>
+                    </>
+                }
+                <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
+                    {
+                        user?.photoURL ?
+
+                            <img src={user?.photoURL} alt="" className=" tooltip  ml-5 w-10 h-10 rounded-full  dark:bg-gray-500 ring-violet-400 ring-offset-gray-800"
+                            />
+                            : <img className="w-10 h-10 rounded-full mt-1 " src="https://toppng.com/uploads/preview/app-icon-set-login-icon-comments-avatar-icon-11553436380yill0nchdm.png" alt="" />
+
+
+                    }
                 </div>
                 <li><button onClick={handelLogout}>Sign out</button></li>
             </>
