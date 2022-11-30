@@ -31,9 +31,9 @@ const DashboardLayout = () => {
                         <div className='bg-opacity-80 bg-black relative min-h-screen  '>
                             {isSeller && <>
 
-                                <li className='hover:bg-primary hover:text-white '><a>My Products</a></li>
-                                <li className='hover:bg-primary hover:text-white '><a>My Buyer</a></li>
-                                <li className='hover:bg-primary hover:text-white '><a>Add Product</a></li>
+                                <li className='hover:bg-primary hover:text-white '><Link to ='/dashboard/'>My Products</Link></li>
+                                <li className='hover:bg-primary hover:text-white '><Link to ='/dashboard/'>My Buyer</Link></li>
+                                <li className='hover:bg-primary hover:text-white '><Link to ='/dashboard/addproduct'>Add Product</Link></li>
                             </>
 
 

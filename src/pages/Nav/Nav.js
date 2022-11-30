@@ -27,7 +27,7 @@ const Nav = () => {
     }
     const menuIteams = <>
         <li><Link to='/home'>Home</Link></li>
-        <li><Link to='/about'>About</Link></li>
+        <li><Link to='/blog'>Blog</Link></li>
         <li><Link to='/bikes'>All Bikes</Link></li>
         <li><Link to='/category'>Bike Category</Link></li>
 

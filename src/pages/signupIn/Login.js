@@ -17,6 +17,11 @@ const Login = () => {
     const { signIn, providerLogin } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider()
     const { register, handleSubmit, formState: { errors }, } = useForm();
+    const [user ,setUser] =useState(['']);
+
+
+  
+
 
     const location = useLocation();
     const navigate = useNavigate()
@@ -30,11 +35,12 @@ const Login = () => {
 
 
     const handelLogin = (data) => {
-
+       
+      
         setError('')
         signIn(data.email, data.password)
             .then(result => {
-                const user = result.user;
+           
                 setLoginUserEmail(data.email);
             })
             .catch(error => {
@@ -46,14 +52,42 @@ const Login = () => {
 
     // google popup sign in function 
     const handelGoogleSignin = () => {
-
         providerLogin(googleProvider)
             .then(result => {
+                setUser(result.user);
+           
+
+                const usersave = { name:user?.displayName, role:"User"};
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(usersave)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                  
+        
+                    })
+                
             })
             .catch(error => {
                 setError(error.message);
             });
+
+
+
+          
+          
+            
     }
+
+  
+
+
+
+
 
 
     return (
