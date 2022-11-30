@@ -11,7 +11,7 @@ const Signup = () => {
 
     const navigate = useNavigate()
 
-    const { createUser, updateUserProfile, loading } = useContext(AuthContext);
+    const { createUser, updateUserProfile,  } = useContext(AuthContext);
     const { register, handleSubmit, formState: { errors }, } = useForm();
     const [error, setError] = useState('');
     const [createdUserEmail, setCreatedUserEmail] = useState('')

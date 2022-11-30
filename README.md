@@ -1,6 +1,40 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Project Name : Used Bike BD
+about project it is used bike sell and buying porpose feature admin , user seller and user contorl by admin ,
+valid user verifyed by admin payment etc used .
+
+## Live link: https://use-bike-bd.web.app/
+
+## Technologies used:
+* React js for front-end,
+* node js uing for backend server ,
+* ccs library tailwind,
+* database mongo DB noSQL,
+* vercel for server deplying 
+* hosting help partener by  google firebase 
+* toast notification hot toast 
+* from control react hook from 
+* and tnt query 
+
+## Application made by :
+####################################
+
+## Refayet Rony 
+## CSE 16B Batch SU 
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Available Scripts
 
