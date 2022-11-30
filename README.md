@@ -21,8 +21,8 @@ valid user verifyed by admin payment etc used .
 ## Application made by :
 ####################################
 
-Refayet Rony 
-CSE 16B Batch SU 
+* Refayet Rony 
+* CSE 16B Batch SU 
 
 
 
