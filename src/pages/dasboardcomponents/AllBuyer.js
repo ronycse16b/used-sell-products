@@ -13,7 +13,7 @@ const AllBuyer = () => {
     const { data: buyers = [''], refetch, isLoading } = useQuery({
         queryKey: ['users', user],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/users?role=${user}`, {
+            const res = await fetch(`https://resale-server-side-nine.vercel.app/users?role=${user}`, {
                 headers: {
                     authorization: `bearer ${localStorage.getItem('accessToken')}`
                 }
@@ -25,7 +25,7 @@ const AllBuyer = () => {
     })
 
     const handleMakeAdmin = id => {
-        fetch(`http://localhost:5000/users/admin/${id}`, {
+        fetch(`https://resale-server-side-nine.vercel.app/users/admin/${id}`, {
             method: 'PUT', 
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -53,7 +53,7 @@ const AllBuyer = () => {
 
 
     const handleDeleteUser = user => {
-        fetch(`http://localhost:5000/users/${user._id}`, {
+        fetch(`https://resale-server-side-nine.vercel.app/users/${user._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`

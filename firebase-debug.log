@@ -1,0 +1,152 @@
+[debug] [2022-11-30T17:31:29.741Z] ----------------------------------------------------------------------
+[debug] [2022-11-30T17:31:29.743Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\refay\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-11-30T17:31:29.744Z] CLI Version:   11.16.1
+[debug] [2022-11-30T17:31:29.744Z] Platform:      win32
+[debug] [2022-11-30T17:31:29.744Z] Node Version:  v16.16.0
+[debug] [2022-11-30T17:31:29.749Z] Time:          Wed Nov 30 2022 23:31:29 GMT+0600 (Bangladesh Standard Time)
+[debug] [2022-11-30T17:31:29.749Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-11-30T17:31:29.846Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-11-30T17:31:29.847Z] > authorizing via signed-in user (refayetrony802@gmail.com)
+[debug] [2022-11-30T17:31:29.847Z] [iam] checking project use-bike-bd for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-11-30T17:31:29.850Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/use-bike-bd:testIamPermissions [none]
+[debug] [2022-11-30T17:31:29.850Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/use-bike-bd:testIamPermissions x-goog-quota-user=projects/use-bike-bd
+[debug] [2022-11-30T17:31:29.850Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/use-bike-bd:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-11-30T17:31:31.636Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/use-bike-bd:testIamPermissions 200
+[debug] [2022-11-30T17:31:31.637Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/use-bike-bd:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-11-30T17:31:31.638Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/use-bike-bd [none]
+[debug] [2022-11-30T17:31:32.175Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/use-bike-bd 200
+[debug] [2022-11-30T17:31:32.176Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/use-bike-bd {"projectId":"use-bike-bd","projectNumber":"107741630341","displayName":"Use-Bike-BD","name":"projects/use-bike-bd","resources":{"hostingSite":"use-bike-bd"},"state":"ACTIVE","etag":"1_f0e45c10-8a10-4de6-acf5-6fa2ef357d96"}
+[info] 
+[info] === Deploying to 'use-bike-bd'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2022-11-30T17:31:32.184Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/use-bike-bd/versions [none]
+[debug] [2022-11-30T17:31:32.184Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/use-bike-bd/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2022-11-30T17:31:34.400Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/use-bike-bd/versions 200
+[debug] [2022-11-30T17:31:34.400Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/use-bike-bd/versions {"name":"projects/107741630341/sites/use-bike-bd/versions/29827e26a96ab3dd","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[use-bike-bd]: beginning deploy... 
+[info] i  hosting[use-bike-bd]: found 15 files in build 
+[debug] [2022-11-30T17:31:34.417Z] [hosting] uploading with 200 concurrency
+[debug] [2022-11-30T17:31:34.419Z] [hosting] hash cache [YnVpbGQ] not populated
+[debug] [2022-11-30T17:31:34.898Z] [hosting] hash cache [YnVpbGQ] stored for 15 files
+[debug] [2022-11-30T17:31:34.899Z] [hosting][hash queue][FINAL] {"max":460,"min":21,"avg":58.8,"active":0,"complete":15,"success":15,"errored":0,"retried":0,"total":15,"elapsed":478}
+[debug] [2022-11-30T17:31:34.900Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/107741630341/sites/use-bike-bd/versions/29827e26a96ab3dd:populateFiles [none]
+[debug] [2022-11-30T17:31:34.900Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/107741630341/sites/use-bike-bd/versions/29827e26a96ab3dd:populateFiles {"files":{"/asset-manifest.json":"47df38f0147561b31d2e96c23ff639fb0023b2383c98c61331f7127ce7e1f16b","/index.html":"b3aafe7f3153f5a081070e7cffc2b2e3568d1785d2bb81fa965f5b74da0a7856","/manifest.json":"aff3449bdc238776f5d6d967f19ec491b36aed5fb7f23ccff6500736fd58494a","/robots.txt":"bfe106a3fb878dc83461c86818bf74fc1bdc7f28538ba613cd3e775516ce8b49","/static/js/787.968a2f32.chunk.js":"b73ccb7e0bc5a5a42dae1ff2529b796ca57b0b4b736ec904376e423415067225","/static/js/787.968a2f32.chunk.js.map":"03ab00c9c785b7be3e56879c9ea10c51227a497db9643d1dfe4b6c217eb0fc75","/static/js/main.1f577bbe.js.LICENSE.txt":"54669683e27665205cf65c8bd60d0e3a05abbe7777bd2d84b3f9a3294b37de41","/logo192.png":"3ee59515172ee198f3be375979df15ac5345183e656720a381b8872b2a39dc8b","/static/css/main.c7b4314d.css.map":"ac09b56b6be7bd87b07b7a279afe2395510c3799d791ec13ec7027f4bef3c1ee","/logo512.png":"ee7e2f3fdb8209c4b6fd7bef6ba50d1b9dba30a25bb5c3126df057e1cb6f5331","/static/css/main.c7b4314d.css":"e6e4519e225976dc562f3c60703df2efa88ced8618c3557765e2f49cf3de3ee1","/static/media/logo.e32e295f4ac4b1d55290.png":"f10fff4691077e5879cd27c9d0aad1f9ae4971fb9371e706530992073a301815","/favicon.ico":"f10fff4691077e5879cd27c9d0aad1f9ae4971fb9371e706530992073a301815","/static/js/main.1f577bbe.js":"9e46d99fc5aa9e62a2b0250083b1062d25cb148496ba0ac6f82752b025c0f396","/static/js/main.1f577bbe.js.map":"fbdaf98d5f5cb64dcb9f0569054cd867982296e722f410682243f9eae45b8d4b"}}
+[debug] [2022-11-30T17:31:39.298Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/107741630341/sites/use-bike-bd/versions/29827e26a96ab3dd:populateFiles 200
+[debug] [2022-11-30T17:31:39.298Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/107741630341/sites/use-bike-bd/versions/29827e26a96ab3dd:populateFiles {"uploadRequiredHashes":["b3aafe7f3153f5a081070e7cffc2b2e3568d1785d2bb81fa965f5b74da0a7856","54669683e27665205cf65c8bd60d0e3a05abbe7777bd2d84b3f9a3294b37de41","f10fff4691077e5879cd27c9d0aad1f9ae4971fb9371e706530992073a301815","bfe106a3fb878dc83461c86818bf74fc1bdc7f28538ba613cd3e775516ce8b49","03ab00c9c785b7be3e56879c9ea10c51227a497db9643d1dfe4b6c217eb0fc75","9e46d99fc5aa9e62a2b0250083b1062d25cb148496ba0ac6f82752b025c0f396","aff3449bdc238776f5d6d967f19ec491b36aed5fb7f23ccff6500736fd58494a","3ee59515172ee198f3be375979df15ac5345183e656720a381b8872b2a39dc8b","b73ccb7e0bc5a5a42dae1ff2529b796ca57b0b4b736ec904376e423415067225","fbdaf98d5f5cb64dcb9f0569054cd867982296e722f410682243f9eae45b8d4b","47df38f0147561b31d2e96c23ff639fb0023b2383c98c61331f7127ce7e1f16b","ac09b56b6be7bd87b07b7a279afe2395510c3799d791ec13ec7027f4bef3c1ee","e6e4519e225976dc562f3c60703df2efa88ced8618c3557765e2f49cf3de3ee1","ee7e2f3fdb8209c4b6fd7bef6ba50d1b9dba30a25bb5c3126df057e1cb6f5331"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files"}
+[debug] [2022-11-30T17:31:39.303Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/b3aafe7f3153f5a081070e7cffc2b2e3568d1785d2bb81fa965f5b74da0a7856 [none]
+[debug] [2022-11-30T17:31:39.303Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/b3aafe7f3153f5a081070e7cffc2b2e3568d1785d2bb81fa965f5b74da0a7856 [stream]
+[debug] [2022-11-30T17:31:39.305Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/54669683e27665205cf65c8bd60d0e3a05abbe7777bd2d84b3f9a3294b37de41 [none]
+[debug] [2022-11-30T17:31:39.305Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/54669683e27665205cf65c8bd60d0e3a05abbe7777bd2d84b3f9a3294b37de41 [stream]
+[debug] [2022-11-30T17:31:39.307Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/f10fff4691077e5879cd27c9d0aad1f9ae4971fb9371e706530992073a301815 [none]
+[debug] [2022-11-30T17:31:39.308Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/f10fff4691077e5879cd27c9d0aad1f9ae4971fb9371e706530992073a301815 [stream]
+[debug] [2022-11-30T17:31:39.310Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/bfe106a3fb878dc83461c86818bf74fc1bdc7f28538ba613cd3e775516ce8b49 [none]
+[debug] [2022-11-30T17:31:39.310Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/bfe106a3fb878dc83461c86818bf74fc1bdc7f28538ba613cd3e775516ce8b49 [stream]
+[debug] [2022-11-30T17:31:39.313Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/03ab00c9c785b7be3e56879c9ea10c51227a497db9643d1dfe4b6c217eb0fc75 [none]
+[debug] [2022-11-30T17:31:39.313Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/03ab00c9c785b7be3e56879c9ea10c51227a497db9643d1dfe4b6c217eb0fc75 [stream]
+[debug] [2022-11-30T17:31:39.315Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/9e46d99fc5aa9e62a2b0250083b1062d25cb148496ba0ac6f82752b025c0f396 [none]
+[debug] [2022-11-30T17:31:39.315Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/9e46d99fc5aa9e62a2b0250083b1062d25cb148496ba0ac6f82752b025c0f396 [stream]
+[debug] [2022-11-30T17:31:39.316Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/aff3449bdc238776f5d6d967f19ec491b36aed5fb7f23ccff6500736fd58494a [none]
+[debug] [2022-11-30T17:31:39.316Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/aff3449bdc238776f5d6d967f19ec491b36aed5fb7f23ccff6500736fd58494a [stream]
+[debug] [2022-11-30T17:31:39.318Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/3ee59515172ee198f3be375979df15ac5345183e656720a381b8872b2a39dc8b [none]
+[debug] [2022-11-30T17:31:39.318Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/3ee59515172ee198f3be375979df15ac5345183e656720a381b8872b2a39dc8b [stream]
+[debug] [2022-11-30T17:31:39.319Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/b73ccb7e0bc5a5a42dae1ff2529b796ca57b0b4b736ec904376e423415067225 [none]
+[debug] [2022-11-30T17:31:39.319Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/b73ccb7e0bc5a5a42dae1ff2529b796ca57b0b4b736ec904376e423415067225 [stream]
+[debug] [2022-11-30T17:31:39.321Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/fbdaf98d5f5cb64dcb9f0569054cd867982296e722f410682243f9eae45b8d4b [none]
+[debug] [2022-11-30T17:31:39.321Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/fbdaf98d5f5cb64dcb9f0569054cd867982296e722f410682243f9eae45b8d4b [stream]
+[debug] [2022-11-30T17:31:39.322Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/47df38f0147561b31d2e96c23ff639fb0023b2383c98c61331f7127ce7e1f16b [none]
+[debug] [2022-11-30T17:31:39.322Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/47df38f0147561b31d2e96c23ff639fb0023b2383c98c61331f7127ce7e1f16b [stream]
+[debug] [2022-11-30T17:31:39.323Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/ac09b56b6be7bd87b07b7a279afe2395510c3799d791ec13ec7027f4bef3c1ee [none]
+[debug] [2022-11-30T17:31:39.323Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/ac09b56b6be7bd87b07b7a279afe2395510c3799d791ec13ec7027f4bef3c1ee [stream]
+[debug] [2022-11-30T17:31:39.325Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/e6e4519e225976dc562f3c60703df2efa88ced8618c3557765e2f49cf3de3ee1 [none]
+[debug] [2022-11-30T17:31:39.325Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/e6e4519e225976dc562f3c60703df2efa88ced8618c3557765e2f49cf3de3ee1 [stream]
+[debug] [2022-11-30T17:31:39.327Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/ee7e2f3fdb8209c4b6fd7bef6ba50d1b9dba30a25bb5c3126df057e1cb6f5331 [none]
+[debug] [2022-11-30T17:31:39.327Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/ee7e2f3fdb8209c4b6fd7bef6ba50d1b9dba30a25bb5c3126df057e1cb6f5331 [stream]
+[debug] [2022-11-30T17:31:39.333Z] [hosting][populate queue][FINAL] {"max":4410,"min":4410,"avg":4410,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":4440}
+[debug] [2022-11-30T17:31:39.334Z] [hosting] uploads queued: 14
+[debug] [2022-11-30T17:31:41.743Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/54669683e27665205cf65c8bd60d0e3a05abbe7777bd2d84b3f9a3294b37de41 200
+[debug] [2022-11-30T17:31:41.743Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/54669683e27665205cf65c8bd60d0e3a05abbe7777bd2d84b3f9a3294b37de41 [stream]
+[debug] [2022-11-30T17:31:41.983Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/b3aafe7f3153f5a081070e7cffc2b2e3568d1785d2bb81fa965f5b74da0a7856 200
+[debug] [2022-11-30T17:31:41.983Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/b3aafe7f3153f5a081070e7cffc2b2e3568d1785d2bb81fa965f5b74da0a7856 [stream]
+[debug] [2022-11-30T17:31:41.998Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/47df38f0147561b31d2e96c23ff639fb0023b2383c98c61331f7127ce7e1f16b 200
+[debug] [2022-11-30T17:31:41.998Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/47df38f0147561b31d2e96c23ff639fb0023b2383c98c61331f7127ce7e1f16b [stream]
+[debug] [2022-11-30T17:31:42.121Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/ac09b56b6be7bd87b07b7a279afe2395510c3799d791ec13ec7027f4bef3c1ee 200
+[debug] [2022-11-30T17:31:42.121Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/ac09b56b6be7bd87b07b7a279afe2395510c3799d791ec13ec7027f4bef3c1ee [stream]
+[debug] [2022-11-30T17:31:42.241Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/f10fff4691077e5879cd27c9d0aad1f9ae4971fb9371e706530992073a301815 200
+[debug] [2022-11-30T17:31:42.241Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/f10fff4691077e5879cd27c9d0aad1f9ae4971fb9371e706530992073a301815 [stream]
+[debug] [2022-11-30T17:31:55.738Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/aff3449bdc238776f5d6d967f19ec491b36aed5fb7f23ccff6500736fd58494a 200
+[debug] [2022-11-30T17:31:55.739Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/aff3449bdc238776f5d6d967f19ec491b36aed5fb7f23ccff6500736fd58494a [stream]
+[debug] [2022-11-30T17:31:55.740Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/bfe106a3fb878dc83461c86818bf74fc1bdc7f28538ba613cd3e775516ce8b49 200
+[debug] [2022-11-30T17:31:55.740Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/bfe106a3fb878dc83461c86818bf74fc1bdc7f28538ba613cd3e775516ce8b49 [stream]
+[debug] [2022-11-30T17:31:55.956Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/ee7e2f3fdb8209c4b6fd7bef6ba50d1b9dba30a25bb5c3126df057e1cb6f5331 200
+[debug] [2022-11-30T17:31:55.956Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/ee7e2f3fdb8209c4b6fd7bef6ba50d1b9dba30a25bb5c3126df057e1cb6f5331 [stream]
+[debug] [2022-11-30T17:31:55.973Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/03ab00c9c785b7be3e56879c9ea10c51227a497db9643d1dfe4b6c217eb0fc75 200
+[debug] [2022-11-30T17:31:55.973Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/03ab00c9c785b7be3e56879c9ea10c51227a497db9643d1dfe4b6c217eb0fc75 [stream]
+[debug] [2022-11-30T17:31:56.165Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/e6e4519e225976dc562f3c60703df2efa88ced8618c3557765e2f49cf3de3ee1 200
+[debug] [2022-11-30T17:31:56.165Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/e6e4519e225976dc562f3c60703df2efa88ced8618c3557765e2f49cf3de3ee1 [stream]
+[debug] [2022-11-30T17:31:56.401Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/9e46d99fc5aa9e62a2b0250083b1062d25cb148496ba0ac6f82752b025c0f396 200
+[debug] [2022-11-30T17:31:56.402Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/9e46d99fc5aa9e62a2b0250083b1062d25cb148496ba0ac6f82752b025c0f396 [stream]
+[debug] [2022-11-30T17:32:00.822Z] [uploadQueue] Retrying task 3ee59515172ee198f3be375979df15ac5345183e656720a381b8872b2a39dc8b
+[debug] [2022-11-30T17:32:00.823Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/3ee59515172ee198f3be375979df15ac5345183e656720a381b8872b2a39dc8b [none]
+[debug] [2022-11-30T17:32:00.823Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/3ee59515172ee198f3be375979df15ac5345183e656720a381b8872b2a39dc8b [stream]
+[debug] [2022-11-30T17:32:00.825Z] [uploadQueue] Retrying task b73ccb7e0bc5a5a42dae1ff2529b796ca57b0b4b736ec904376e423415067225
+[debug] [2022-11-30T17:32:00.825Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/b73ccb7e0bc5a5a42dae1ff2529b796ca57b0b4b736ec904376e423415067225 [none]
+[debug] [2022-11-30T17:32:00.825Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/b73ccb7e0bc5a5a42dae1ff2529b796ca57b0b4b736ec904376e423415067225 [stream]
+[debug] [2022-11-30T17:32:00.827Z] [uploadQueue] Retrying task fbdaf98d5f5cb64dcb9f0569054cd867982296e722f410682243f9eae45b8d4b
+[debug] [2022-11-30T17:32:00.827Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/fbdaf98d5f5cb64dcb9f0569054cd867982296e722f410682243f9eae45b8d4b [none]
+[debug] [2022-11-30T17:32:00.827Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/fbdaf98d5f5cb64dcb9f0569054cd867982296e722f410682243f9eae45b8d4b [stream]
+[debug] [2022-11-30T17:32:03.214Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/3ee59515172ee198f3be375979df15ac5345183e656720a381b8872b2a39dc8b 200
+[debug] [2022-11-30T17:32:03.214Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/3ee59515172ee198f3be375979df15ac5345183e656720a381b8872b2a39dc8b [stream]
+[debug] [2022-11-30T17:32:03.391Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/b73ccb7e0bc5a5a42dae1ff2529b796ca57b0b4b736ec904376e423415067225 200
+[debug] [2022-11-30T17:32:03.392Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/b73ccb7e0bc5a5a42dae1ff2529b796ca57b0b4b736ec904376e423415067225 [stream]
+[debug] [2022-11-30T17:32:03.901Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/fbdaf98d5f5cb64dcb9f0569054cd867982296e722f410682243f9eae45b8d4b 200
+[debug] [2022-11-30T17:32:03.901Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/use-bike-bd/versions/29827e26a96ab3dd/files/fbdaf98d5f5cb64dcb9f0569054cd867982296e722f410682243f9eae45b8d4b [stream]
+[debug] [2022-11-30T17:32:03.901Z] [hosting][upload queue][FINAL] {"max":17102,"min":2391,"avg":8698.92857142857,"active":0,"complete":14,"success":14,"errored":0,"retried":3,"total":14,"elapsed":24602}
+[info] +  hosting[use-bike-bd]: file upload complete 
+[debug] [2022-11-30T17:32:03.903Z] [hosting] deploy completed after 29501ms
+[debug] [2022-11-30T17:32:03.906Z] [
+  {
+    "config": {
+      "public": "build",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "use-bike-bd"
+    },
+    "version": "projects/107741630341/sites/use-bike-bd/versions/29827e26a96ab3dd"
+  }
+]
+[info] i  hosting[use-bike-bd]: finalizing version... 
+[debug] [2022-11-30T17:32:03.910Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/use-bike-bd/versions/29827e26a96ab3dd updateMask=status%2Cconfig
+[debug] [2022-11-30T17:32:03.910Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/use-bike-bd/versions/29827e26a96ab3dd {"status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]}}
+[debug] [2022-11-30T17:32:20.460Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/use-bike-bd/versions/29827e26a96ab3dd 200
+[debug] [2022-11-30T17:32:20.460Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/use-bike-bd/versions/29827e26a96ab3dd {"name":"projects/107741630341/sites/use-bike-bd/versions/29827e26a96ab3dd","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-11-30T17:31:34.158291Z","createUser":{"email":"refayetrony802@gmail.com"},"finalizeTime":"2022-11-30T17:32:21.100633Z","finalizeUser":{"email":"refayetrony802@gmail.com"}}
+[debug] [2022-11-30T17:32:20.460Z] [hosting] finalized version for use-bike-bd:[object Object]
+[info] +  hosting[use-bike-bd]: version finalized 
+[info] i  hosting[use-bike-bd]: releasing new version... 
+[debug] [2022-11-30T17:32:20.462Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/use-bike-bd/channels/live/releases versionName=projects%2F107741630341%2Fsites%2Fuse-bike-bd%2Fversions%2F29827e26a96ab3dd
+[debug] [2022-11-30T17:32:20.462Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/use-bike-bd/channels/live/releases {}
+[debug] [2022-11-30T17:32:22.014Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/use-bike-bd/channels/live/releases 200
+[debug] [2022-11-30T17:32:22.014Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/use-bike-bd/channels/live/releases {"name":"projects/107741630341/sites/use-bike-bd/channels/live/releases/1669829541838163","version":{"name":"projects/107741630341/sites/use-bike-bd/versions/29827e26a96ab3dd","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-11-30T17:31:34.158291Z","createUser":{"email":"refayetrony802@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ALm5wu3ggLNVOfGRVAjwQ-4Uo58xmShPRn1BjQGLAgVKvw"},"finalizeTime":"2022-11-30T17:32:21.100633Z","finalizeUser":{"email":"refayetrony802@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ALm5wu3ggLNVOfGRVAjwQ-4Uo58xmShPRn1BjQGLAgVKvw"}},"type":"DEPLOY","releaseTime":"2022-11-30T17:32:21.838163198Z","releaseUser":{"email":"refayetrony802@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ALm5wu3ggLNVOfGRVAjwQ-4Uo58xmShPRn1BjQGLAgVKvw"}}
+[debug] [2022-11-30T17:32:22.014Z] [hosting] release: {"name":"projects/107741630341/sites/use-bike-bd/channels/live/releases/1669829541838163","version":{"name":"projects/107741630341/sites/use-bike-bd/versions/29827e26a96ab3dd","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-11-30T17:31:34.158291Z","createUser":{"email":"refayetrony802@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ALm5wu3ggLNVOfGRVAjwQ-4Uo58xmShPRn1BjQGLAgVKvw"},"finalizeTime":"2022-11-30T17:32:21.100633Z","finalizeUser":{"email":"refayetrony802@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ALm5wu3ggLNVOfGRVAjwQ-4Uo58xmShPRn1BjQGLAgVKvw"}},"type":"DEPLOY","releaseTime":"2022-11-30T17:32:21.838163198Z","releaseUser":{"email":"refayetrony802@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ALm5wu3ggLNVOfGRVAjwQ-4Uo58xmShPRn1BjQGLAgVKvw"}}
+[info] +  hosting[use-bike-bd]: release complete 
+[info] 
+[info] +  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/use-bike-bd/overview
+[info] Hosting URL: https://use-bike-bd.web.app
+[debug] [2022-11-30T17:32:32.326Z] Error: Timed out.
+    at Timeout._onTimeout (C:\Users\refay\AppData\Roaming\npm\node_modules\firebase-tools\lib\utils.js:253:49)
+    at listOnTimeout (node:internal/timers:559:17)
+    at processTimers (node:internal/timers:502:7)
+[error] 
+[error] Error: An unexpected error has occurred.

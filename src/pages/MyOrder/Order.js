@@ -9,7 +9,7 @@ const Order = ({ order,refetch }) => {
 
 
     const handleDeleteOrder = order => {
-        fetch(`http://localhost:5000/bookings/${order._id}`, {
+        fetch(`https://resale-server-side-nine.vercel.app/bookings/${order._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
