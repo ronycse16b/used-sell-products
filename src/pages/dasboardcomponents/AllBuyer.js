@@ -52,6 +52,23 @@ const AllBuyer = () => {
     }
 
 
+    const handleDeleteUser = user => {
+        fetch(`http://localhost:5000/users/${user._id}`, {
+            method: 'DELETE',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    refetch();
+                    toast.success(`Users${user.name}deleted successfully`)
+                }
+            })
+    }
+
+
     return (
         <div className="container p-2 mx-auto sm:p-4 dark:text-gray-100">
             <h2 className="mb-4 text-2xl font-semibold leading-tight">All Buyers</h2>
@@ -103,6 +120,7 @@ const AllBuyer = () => {
                 successButtonName="Delete"
                 closeModal = {closeModal}
                 modalData = {deleteUser}
+                successAction = {handleDeleteUser}
                 >
                 </ConfirmationModal>
             }

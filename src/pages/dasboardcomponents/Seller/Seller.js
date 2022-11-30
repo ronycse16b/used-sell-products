@@ -1,11 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useState } from 'react';
 import toast from 'react-hot-toast';
+import ConfirmationModal from '../../ConfirmationModal/ConfirmationModal';
 import Loader from '../../Loader/Loader';
 
 
 
 const Seller = () => {
+    const [deleteUser , setDeleteUser] = useState(null)
     const user = 'seller';
     const { data: buyers = [''],refetch ,isLoading } = useQuery({
         queryKey: ['users', user],
@@ -42,14 +44,35 @@ const Seller = () => {
     }
 
 
-
-
-
-
-
     if (isLoading) {
         return <Loader></Loader>
     }
+
+
+
+    const closeModal = () => {
+        setDeleteUser(null);
+    }
+
+
+    const handleDeleteUser = user => {
+        fetch(`http://localhost:5000/users/${user._id}`, {
+            method: 'DELETE',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    refetch();
+                    toast.success(`Users ${user.name} deleted successfully`)
+                }
+            })
+    }
+
+
+
     return (
         <div className="container p-2 mx-auto sm:p-4 dark:text-gray-100">
             <h2 className="mb-4 text-2xl font-semibold leading-tight">All Buyers</h2>
@@ -91,7 +114,7 @@ const Seller = () => {
                                     <span className=" font-semibold rounded-md dark:bg-violet-400 dark:text-gray-900 mr-4">
                                     {user?.role !== 'admin' && <button disabled={user.status ==='Verifyed'}  onClick={() => handleVarifyedSeller(user._id)} className='btn btn-xs btn-primary'>Make Verifiyed</button>}
                                     </span>
-                                    <button className='btn btn-xs btn-accent text-white hover:bg-primary border-0'>Delete </button>
+                                    <label onClick={() => setDeleteUser(user)} htmlFor="confirmation-modal" className="btn btn-xs btn-primary  text-white hover:bg-primary">Delete</label>
                                 </td>
                                 <td className="p-3">
 
@@ -101,6 +124,17 @@ const Seller = () => {
                     </tbody>
                 </table>
             </div>
+            {
+                deleteUser && <ConfirmationModal
+                title={`Are you sure you want to delete?`}
+                message={` #Noted : User cannot be Back.`}
+                successButtonName="Delete"
+                closeModal = {closeModal}
+                modalData = {deleteUser}
+                successAction = {handleDeleteUser}
+                >
+                </ConfirmationModal>
+            }
         </div>
     );
 };

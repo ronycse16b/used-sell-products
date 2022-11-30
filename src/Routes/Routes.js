@@ -78,7 +78,7 @@ export const router = createBrowserRouter([
 
       {
         path: '/dashboard',
-        element: <ProtectRoutes> <AdminRoute><Dashboard></Dashboard></AdminRoute></ProtectRoutes>
+        element: <ProtectRoutes> <Dashboard></Dashboard></ProtectRoutes>
       },
       {
         path: '/dashboard/seller',
