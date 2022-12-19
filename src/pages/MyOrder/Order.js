@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
-import ConfirmationModal from '../ConfirmationModal/ConfirmationModal';
+
 
 const Order = ({ order,refetch }) => {
 
@@ -9,11 +9,11 @@ const Order = ({ order,refetch }) => {
 
 
     const handleDeleteOrder = order => {
-        fetch(`https://resale-server-side-nine.vercel.app/bookings/${order._id}`, {
+        fetch(`https://resale-server-side-ronycse16b.vercel.app/bookings/${order._id}`, {
             method: 'DELETE',
-            headers: {
-                authorization: `bearer ${localStorage.getItem('accessToken')}`
-            }
+            // headers: {
+            //     authorization: `bearer ${localStorage.getItem('accessToken')}`
+            // }
         })
             .then(res => res.json())
             .then(data => {

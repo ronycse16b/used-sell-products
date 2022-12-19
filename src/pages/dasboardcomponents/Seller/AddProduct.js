@@ -12,24 +12,24 @@ const AddProduct = () => {
   
     const handelLogin = (data) => {
 
-            const name = data.brand;
-            const price = data.price;
-            const discription = data.discription;
+            // const name = data.brand;
+            // const price = data.price;
+            // const discription = data.discription;
             const image = data.image[0];
     
 
-        const formData = new FormData();
-        formData.append('image', image);
-        const url = 
+        // const formData = new FormData();
+        // formData.append('image', image);
+        // const url = 
 
-        fetch( `https://api.imgbb.com/1/upload?key=${imageHostKey}`, {
-            method: 'POST',
-            body: formData
-        })
-        .then(res => res.json())
-        .then(imgData => {
-        console.log(imgData);
-        })
+        // fetch( `https://api.imgbb.com/1/upload?key=${imageHostKey}`, {
+        //     method: 'POST',
+        //     body: formData
+        // })
+        // .then(res => res.json())
+        // .then(imgData => {
+        // console.log(imgData);
+        // })
     }
 
 

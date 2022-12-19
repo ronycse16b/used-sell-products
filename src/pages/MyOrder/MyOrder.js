@@ -15,16 +15,18 @@ const MyOrder = () => {
     const { data: bookings = [''], refetch, isLoading } = useQuery({
         queryKey: ['bookings', user?.email],
         queryFn: async () => {
-            const res = await fetch(`https://resale-server-side-nine.vercel.app/bookings?email=${user?.email}`, {
-                headers: {
-                    authorization: `bearer ${localStorage.getItem('accessToken')}`
-                }
+            const res = await fetch(`https://resale-server-side-ronycse16b.vercel.app/bookings?email=${user?.email}`, {
+                // headers: {
+                //     authorization: `bearer ${localStorage.getItem('accessToken')}`
+                // }
             });
             const data = await res.json();
+            console.log(bookings);
             return data;
         }
     })
 
+    
 
 
 
@@ -39,7 +41,7 @@ const MyOrder = () => {
         <div >
             <div className="flex flex-col max-w-3xl p-6 space-y-4 sm:p-10 dark:bg-gray-900 dark:text-gray-100 conatiner mx-auto lg:py-20">
               {
-                bookings.length > 0 ? <h2 className="text-xl font-semibold">You Have {bookings.length} Order</h2> :<h2 className="text-xl font-semibold">You Dont Have Any Order Right Now</h2>
+                bookings?.length > 0 ? <h2 className="text-xl font-semibold">You Have {bookings.length} Order</h2> :<h2 className="text-xl font-semibold">You Dont Have Any Order Right Now</h2>
               }
                   
 
@@ -49,7 +51,7 @@ const MyOrder = () => {
 
 
                   {
-                    bookings.map(order => <Order key={order._id} order={order} refetch={refetch} ></Order>)
+                    bookings?.map(order => <Order key={order._id} order={order} refetch={refetch} ></Order>)
 
                   } 
 

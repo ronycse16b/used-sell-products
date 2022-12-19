@@ -7,12 +7,14 @@ import Loader from '../../Loader/Loader';
 
 
 const Seller = () => {
-    const [deleteUser , setDeleteUser] = useState(null)
+
+
+    const [deleteUser, setDeleteUser] = useState(null)
     const user = 'seller';
-    const { data: buyers = [''],refetch ,isLoading } = useQuery({
+    const { data: buyers = [''], refetch, isLoading } = useQuery({
         queryKey: ['users', user],
         queryFn: async () => {
-            const res = await fetch(`https://resale-server-side-nine.vercel.app/users?role=${user}`, {
+            const res = await fetch(`https://resale-server-side-ronycse16b.vercel.app/users?role=${user}`, {
                 headers: {
                     authorization: `bearer ${localStorage.getItem('accessToken')}`
                 }
@@ -26,21 +28,21 @@ const Seller = () => {
 
     const handleVarifyedSeller = id => {
 
-          
 
-        fetch(`https://resale-server-side-nine.vercel.app/users/admin/verify/${id}`, {
-            method: 'PUT', 
+
+        fetch(`https://resale-server-side-ronycse16b.vercel.app/users/admin/verify/${id}`, {
+            method: 'PUT',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
             }
         })
-        .then(res => res.json())
-        .then(data => {
-            if(data.modifiedCount > 0){
-                toast.success('verifyed successful.')
-                refetch();
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    toast.success('verifyed successful.')
+                    refetch();
+                }
+            })
     }
 
 
@@ -56,7 +58,7 @@ const Seller = () => {
 
 
     const handleDeleteUser = user => {
-        fetch(`https://resale-server-side-nine.vercel.app/users/${user._id}`, {
+        fetch(`https://resale-server-side-ronycse16b.vercel.app/users/${user._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -65,6 +67,7 @@ const Seller = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.deletedCount > 0) {
+
                     refetch();
                     toast.success(`Users ${user.name} deleted successfully`)
                 }
@@ -106,13 +109,15 @@ const Seller = () => {
                                     <p>{user.role}</p>
                                 </td>
                                 <td className="p-3">
-                                    <p>{user.status}</p>
+                                    {
+                                        user.status === 'Verifyed' ? <div className='flex items-center'><span className='text-green-700  font-bold'>Verifyed Seller </span> <img src="https://t4.ftcdn.net/jpg/02/02/78/81/360_F_202788149_9sndfcPPme9zRtstjROSmyLFma2UMYaM.jpg" alt="" className='w-10 h-10' /></div> : <div className='flex items-center'><span className='text-red-800 border-2 border-red-900  font-bold p-2'>UnVerifyed</span> </div>
+                                    }
                                 </td>
 
 
                                 <td className="p-3 ">
                                     <span className=" font-semibold rounded-md dark:bg-violet-400 dark:text-gray-900 mr-4">
-                                    {user?.role !== 'admin' && <button disabled={user.status ==='Verifyed'}  onClick={() => handleVarifyedSeller(user._id)} className='btn btn-xs btn-primary'>Make Verifiyed</button>}
+                                        {user?.role !== 'admin' && <button disabled={user.status === 'Verifyed'} onClick={() => handleVarifyedSeller(user._id)} className='btn btn-xs btn-primary'>Make Verifiyed</button>}
                                     </span>
                                     <label onClick={() => setDeleteUser(user)} htmlFor="confirmation-modal" className="btn btn-xs btn-primary  text-white hover:bg-primary">Delete</label>
                                 </td>
@@ -126,12 +131,12 @@ const Seller = () => {
             </div>
             {
                 deleteUser && <ConfirmationModal
-                title={`Are you sure you want to delete?`}
-                message={` #Noted : User cannot be Back.`}
-                successButtonName="Delete"
-                closeModal = {closeModal}
-                modalData = {deleteUser}
-                successAction = {handleDeleteUser}
+                    title={`Are you sure you want to delete?`}
+                    message={` #Noted : User cannot be Back.`}
+                    successButtonName="Delete"
+                    closeModal={closeModal}
+                    modalData={deleteUser}
+                    successAction={handleDeleteUser}
                 >
                 </ConfirmationModal>
             }

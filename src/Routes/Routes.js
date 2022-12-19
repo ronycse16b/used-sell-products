@@ -41,12 +41,12 @@ export const router = createBrowserRouter([
       {
         path: '/brands/:id',
         element: <Brands></Brands>,
-        loader: ({ params }) => fetch(`https://resale-server-side-nine.vercel.app/brands/${params.id}`)
+        loader: ({ params }) => fetch(`https://resale-server-side-ronycse16b.vercel.app/brands/${params.id}`)
       },
       {
         path: '/brands/Details/:id',
         element: <ProtectRoutes><BikeDetails></BikeDetails></ProtectRoutes>,
-        loader: ({ params }) => fetch(`https://resale-server-side-nine.vercel.app/brands/Details/${params.id}`)
+        loader: ({ params }) => fetch(`https://resale-server-side-ronycse16b.vercel.app/brands/Details/${params.id}`)
       },
       {
         path: '/order',

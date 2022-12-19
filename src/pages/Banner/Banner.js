@@ -24,13 +24,11 @@ const Banner = () => {
           <div className="flex flex-col items-center justify-between xl:flex-row">
             <div className="w-full max-w-xl mb-12 xl:mb-0 xl:pr-16 xl:w-7/12 ">
               <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
-                The quick, brown fox <br className="hidden md:block" />
-                jumps over a lazy dog
+                USED BIKE BD <br className="hidden md:block" />
+                
               </h2>
               <p className="max-w-xl mb-4 text-base text-gray-200 md:text-lg">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudan, totam rem aperiam, eaque ipsa
-                quae.
+                Used Bikes BD this is most populer BD  Site .As a general rule of thumb, you can get a really nice, long-lasting used bike in the 22,000 to 2,50,000 range. A brand new bike with similar build quality and features should run you around.
               </p>
               <a
                 href="/"

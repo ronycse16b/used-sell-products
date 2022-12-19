@@ -1,5 +1,5 @@
 
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Nav.css';
 import logo from './logo.png';
@@ -9,8 +9,9 @@ import useSeller from '../Hook/useSeller';
 import useUser from '../Hook/useUser';
 
 
+
 const Nav = () => {
-    const { user, logOut } = useContext(AuthContext);
+    const { user, logOut,} = useContext(AuthContext);
     const [isAdmin] = useAdmin(user?.email)
     const [isUser] = useUser(user?.email)
     const [isSeller] = useSeller(user?.email)
@@ -52,9 +53,9 @@ const Nav = () => {
                 }
                 <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
                     {
-                        user?.photoURL ?
+                        user.photoURL?
 
-                            <img src={user?.photoURL} alt="" className=" tooltip  ml-5 w-10 h-10 rounded-full  dark:bg-gray-500 ring-violet-400 ring-offset-gray-800"
+                            <img src={user?.photoURL} alt="" className=" tooltip  ml-5 w-10 h-10 rounded-full border-2 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800"
                             />
                             : <img className="w-10 h-10 rounded-full mt-1 " src="https://toppng.com/uploads/preview/app-icon-set-login-icon-comments-avatar-icon-11553436380yill0nchdm.png" alt="" />
 
@@ -64,7 +65,7 @@ const Nav = () => {
                 <li><button onClick={handelLogout}>Sign out</button></li>
             </>
 
-            : <li><Link to='/login'>Signin / Signup</Link></li>
+            : <li><Link to='/login'>Sign in / Signup</Link></li>
 
         }
     </>
@@ -94,9 +95,11 @@ const Nav = () => {
                         {menuIteams}
                     </ul>
                 </div>
-                <label htmlFor="dasboard-drawer" tabIndex={2} className="btn btn-ghost lg:hidden">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-                </label>
+              {
+                isSeller || isAdmin? <label htmlFor="dasboard-drawer" tabIndex={2} className="btn btn-ghost lg:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+            </label>: ''
+              }
             </div>
 
 

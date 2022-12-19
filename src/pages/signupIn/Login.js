@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from '../../Context/Auth/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
 import useToken from '../Hook/useToken';
+import Loader from '../Loader/Loader';
 
 
 
@@ -17,22 +18,21 @@ const Login = () => {
     const { signIn, providerLogin } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider()
     const { register, handleSubmit, formState: { errors }, } = useForm();
-    const [user ,setUser] =useState(['']);
+    const location = useLocation();
+    const navigate = useNavigate()
+    const from = location.state?.from?.pathname || '/'
+
+    if(token){
+        navigate(from, { replace: true });
+    }
+
+ 
+
 
 
   
 
-
-    const location = useLocation();
-    const navigate = useNavigate()
-
-    const from = location.state?.from?.pathname || '/'
-
-    if (token) {
-        navigate(from, { replace: true });
-    }
-
-
+  
 
     const handelLogin = (data) => {
        
@@ -54,22 +54,9 @@ const Login = () => {
     const handelGoogleSignin = () => {
         providerLogin(googleProvider)
             .then(result => {
-                setUser(result.user);
+                saveUser(result.user?.displayName,result.user?.email,)
            
 
-                const usersave = { name:user?.displayName, role:"User"};
-                fetch('https://resale-server-side-nine.vercel.app/users', {
-                    method: 'POST',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify(usersave)
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                  
-        
-                    })
                 
             })
             .catch(error => {
@@ -83,7 +70,23 @@ const Login = () => {
             
     }
 
-  
+
+    const saveUser = (name, email) => {
+        const user = { name, email, role:'User' };
+        console.log(user);
+        fetch(`https://resale-server-side-ronycse16b.vercel.app/users/${email}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+            
+
+            })
+    }
 
 
 

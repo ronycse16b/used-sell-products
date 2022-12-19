@@ -38,7 +38,7 @@ const BookingModal = ({ data }) => {
 
 
 
-        fetch('https://resale-server-side-nine.vercel.app/bookings', {
+        fetch('https://resale-server-side-ronycse16b.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

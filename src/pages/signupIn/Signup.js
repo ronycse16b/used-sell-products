@@ -1,9 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { set, useForm } from "react-hook-form";
 import toast from 'react-hot-toast';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/Auth/AuthProvider';
 import useToken from '../Hook/useToken';
+import Loader from '../Loader/Loader';
 
 
 
@@ -11,15 +12,26 @@ const Signup = () => {
 
     const navigate = useNavigate()
 
-    const { createUser, updateUserProfile,  } = useContext(AuthContext);
+    const { createUser, updateUserProfile,} = useContext(AuthContext);
     const { register, handleSubmit, formState: { errors }, } = useForm();
     const [error, setError] = useState('');
     const [createdUserEmail, setCreatedUserEmail] = useState('')
     const [token] = useToken(createdUserEmail);
-
+ 
     if(token){
         navigate('/');
+        window.location.reload();
+        
     }
+
+   
+
+  
+ 
+
+  
+
+
 
     const handelSignup = (data) => {
 
@@ -34,7 +46,7 @@ const Signup = () => {
                 console.log(user);
                 handelUpdateUser(data.name);
                 saveUser(data.name, email, data.role)
-                toast.success('user create successfully');
+                toast.success('User created successfully');
             })
             .catch(error => {
                 setError(error.message);
@@ -63,7 +75,7 @@ const Signup = () => {
 
     const saveUser = (name, email, role) => {
         const user = { name, email, role, status: 'unverified' };
-        fetch('https://resale-server-side-nine.vercel.app/users', {
+        fetch('https://resale-server-side-ronycse16b.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
